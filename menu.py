@@ -3,6 +3,7 @@ from Cancha import cancha
 from Bloque import bloque 
 from TipoCancha import tipocancha 
 from Partidos import partido
+from Posicion import posicion
 import os
 import time
 
@@ -81,6 +82,7 @@ class Menu:
                         if resultado == None:
                             print ("la id no coincide")
                         else:
+                            print(' ')
                             input("Presione tecla ENTER para volver")
                             cl()   
 
@@ -157,11 +159,96 @@ class Menu:
                         d=int(input('ingrese dia'))
                         m=int(input('ingrese mes'))
                         bloque.listar_bloque(1)
+
+                    elif valorP == 3:
+                        print('1.- buscar por jugador')
+                        conpartido=input(int('2.- buscar por su id'))
+                        
+                        if conpartido == 1 :
+                            busc = input(int('ingrese id del jugador  '))
+                            resultado =  partido.listar_partido_jugador(id,busc)
+                            if resultado == None:
+                                print ("la id no coincide")
+                            
+                        elif conpartido == 2 :
+                            busc = input(int('ingrese id del partido '))
+                            resultado =  partido.listar_partido_partido(id,busc)
+                            if resultado == None:
+                                print ("la id no coincide")
+                                
+                                #select en partidos y listar 
+                                #alguna forma de volver al menu principal
                 
                     elif valorP == 4:
                             continuar=False
+            
+            elif valor==3:
+                continuar = True
+                while continuar:
+                    print(' ')
+                    print('********************************** ')
+                    print('*                                * ')
+                    print('*        CONFIGURACIONES         * ')
+                    print('*                                * ')
+                    print('********************************** ')
+                    print(' ')
+                    print('1.- BLOQUES')
+                    print('2.- TIPOS DE CANCHA')
+                    print('3.- POSCIONES ')
+                    print('4.- Volver')
+                    print(' ')
+                    valorC = int(input("-> : "))     
+                    cl()
 
-                    # date = str(input("que dia desea jugar")) #listarlos
+                    if valorC==1:
+                        bloque.listartodo_bloque(1)
+                        print(' ')
+                        input("Presione tecla ENTER para volver")
+                        cl() 
+                    elif valorC==2: 
+                        tipocancha.listartodo_tipocancha(1)
+                        print(' ')
+                        input("Presione tecla ENTER para volver")
+                        cl() 
+                    elif valorC==3: 
+                        posicion.listartodo_posicion(1)
+                        print(' ')
+                        input("Presione tecla ENTER para volver")
+                        cl() 
+                    elif valorC == 4:
+                        continuar=False
+                    else:
+                        print("Seleccione una opción valida .")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ..")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ...")
+                        time.sleep(0.6)
+                        cl()
+                        continue  
+                    
+                print('opciones de modificacion en desarrolo')
+                #finalizar
+            else:
+                print("Seleccione una opción valida .")
+                time.sleep(0.6)
+                cl()
+                print("Seleccione una opción valida ..")
+                time.sleep(0.6)
+                cl()
+                print("Seleccione una opción valida ...")
+                time.sleep(0.6)
+                cl()
+                continue
+
+
+Menu.__init__()
+
+
+
+        # date = str(input("que dia desea jugar")) #listarlos
                     # print ('Bloque 101	00:00 - 01:00//Bloque 102	00:00 - 01:00')
                     # print ('Bloque 103	00:00 - 01:00//Bloque 104	00:00 - 01:00')
                     # print ('Bloque 105	00:00 - 01:00//Bloque 106	00:00 - 01:00')
@@ -238,21 +325,3 @@ class Menu:
             # #     elif valorC==2: 
             # #     elif valorC==3: 
             # #     elif valorC==4: 
-
-            else:
-                print("Seleccione una opción valida .")
-                time.sleep(0.6)
-                cl()
-                print("Seleccione una opción valida ..")
-                time.sleep(0.6)
-                cl()
-                print("Seleccione una opción valida ...")
-                time.sleep(0.6)
-                cl()
-                continue
-
-
-Menu.__init__()
-
-
-

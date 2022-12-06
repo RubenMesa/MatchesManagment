@@ -11,7 +11,7 @@ class DataBase:
                 password="Nokia2022",
                 database="mydb"
                 )               
-            print("Ingreso a BD..")
+            print(' ')
             self.connection=aux
         except Error as e:
             print( 'error'+ str(e))
