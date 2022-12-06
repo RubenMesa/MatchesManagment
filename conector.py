@@ -1,28 +1,61 @@
 from getpass import getpass
 from mysql.connector import connect, Error
 
-
 class DataBase:
 
-    def __init__(self, user, password):
-        self.user = user
-        self.password = password
-
-    def conectar(self):
+    def __init__(self):
         try:
-            with connect(
-                host="localhost",
-                user=self.user,
-                password=self.password,
+            aux= connect(
+                host='localhost',
+                user='root',
+                password="Nokia2022",
                 database="mydb"
-            ) as connection:
-                print(connection)
-                select = "SELECT * FROM suario"
-                with connection.cursor() as cursor:
-                    cursor.execute(select)
-                    for row in cursor.fetchall():
-                        print(row)
+                )               
+            print("Ingreso a BD..")
+            self.connection=aux
+        except Error as e:
+            print( 'error'+ str(e))
+ 
+    def insert(self,sql):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            self.connection.commit()
+            self.connection.close()
         except Error as e:
             print(e)
+    
+    def list(self,tabla):
+        cursor =self.connection.cursor()
+        cursor.execute(f"SELECT * FROM {tabla};")
+        resultado=cursor.fetchall()
+        for registro in resultado:
+            print(registro)
+        self.connection.close()
+
+    def list_dato_uq(self,sql):
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        resultado=cursor.fetchone()
+        print(resultado)
+        self.connection.close()
+        return resultado
+
+    def modificar(self,sql):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            self.connection.commit()
+            self.connection.close()
+        except Error as e:
+            print(e)
+    
+ 
+
+    
+
+
+
+    
 
 
