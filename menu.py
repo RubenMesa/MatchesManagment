@@ -76,10 +76,20 @@ class Menu:
                         nuser.registrarjugador()
 
                     elif valorj == 2:
-                        pass
+                        id=int(input('ingrese por su id: '))
+                        resultado =  usuario.listar_jugador(id,id)
+                        if resultado == None:
+                            print ("la id no coincide")
+                        else:
+                            input("Presione tecla ENTER para volver")
+                            cl()   
 
                     elif valorj == 3:
                         usuario.listartodo_user(1)
+                        print(" ")
+                        print(" ")
+                        input("Presione tecla ENTER para volver")
+                        cl()
 
 
                     elif valorj == 4:
@@ -110,62 +120,72 @@ class Menu:
                     elif valorj == 5:
                         continuar=False
 
+                    else:
+                        print("Seleccione una opción valida .")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ..")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ...")
+                        time.sleep(0.6)
+                        cl()
+                        continue        
 
+            elif valor==2:
+                continuar = True
+                while continuar:
+                    print(' ')
+                    print('********************************** ')
+                    print('*                                * ')
+                    print('*            PARTIDOS            * ')
+                    print('*                                * ')
+                    print('********************************** ')
+                    print(' ')
+                    print('1.- Registrar Partido')
+                    print('2.- Unirse a Partido')
+                    print('3.- Buscar Partido ')
+                    print('4.- Volver')
+                    print(' ')
+                    valorP = int(input("-> : "))     
+                    cl()       
 
-            else:
-                print("Seleccione una opción valida .")
-                time.sleep(0.6)
-                cl()
-                print("Seleccione una opción valida ..")
-                time.sleep(0.6)
-                cl()
-                print("Seleccione una opción valida ...")
-                time.sleep(0.6)
-                cl()
-                continue
-                        
-                        
-                        
-                        
-                        
+                    if valorP == 1:
+                        cancha.listartodo_cancha()
+                        can = str(input("cancha por la id"))
+                        print('ingrese dia y mes que se jugara este partido')
+                        d=int(input('ingrese dia'))
+                        m=int(input('ingrese mes'))
+                        bloque.listar_bloque(1)
+                
+                    elif valorP == 4:
+                            continuar=False
+
+                    # date = str(input("que dia desea jugar")) #listarlos
+                    # print ('Bloque 101	00:00 - 01:00//Bloque 102	00:00 - 01:00')
+                    # print ('Bloque 103	00:00 - 01:00//Bloque 104	00:00 - 01:00')
+                    # print ('Bloque 105	00:00 - 01:00//Bloque 106	00:00 - 01:00')
+                    # print ('Bloque 107	00:00 - 01:00//Bloque 108	00:00 - 01:00')
+                    # print ('Bloque 109	00:00 - 01:00//Bloque 110	00:00 - 01:00')
+                    # print ('Bloque 111	00:00 - 01:00//Bloque 112   00:00 - 01:00')
+                    # print ('Bloque 113	00:00 - 01:00//Bloque 114	00:00 - 01:00')
+                    # print ('Bloque 115	00:00 - 01:00//Bloque 116	00:00 - 01:00')
+                    # print ('Bloque 117  00:00 - 01:00//Bloque 118	00:00 - 01:00')
+                    # print ('Bloque 119	00:00 - 01:00//Bloque 120	00:00 - 01:00')
+                    # print ('Bloque 121	00:00 - 01:00//Bloque 122	00:00 - 01:00')
+                    # print ('Bloque 123	00:00 - 01:00//Bloque 124	00:00 - 01:00')
+                    # print ('escoja un horario en que se realizara el partido')
+                    # bloque  = int(input("bloque:"))
+                    # #verificar la cancha en la BD 
+                    # # y que exista un partido con ese horario 
+                    # if todo bien :
+                    #     print ("partido creado con exito")
+                    # else: 
+                    #     print ("la cancha se encuentra en uso en ese horario ")
+                    #     #nose como devolverlos a algun menu 
                     
-
-                        
-
-            # # elif valor==2:
-            # #     print('--Partidos--')
-            # #     print('1.- Registrar Partido')
-            # #     print('2.- Unirse a Partido')
-            # #     print('3.- Buscar Partido ')
-            # #     valorP = int(input("...\n"))
-
-            # #     if valorP == 1:
-            # #         can = str(input("cancha en la que se jugara"))
-            # #         date = str(input("que dia desea jugar")) #listarlos
-            # #         print ('Bloque 101	00:00 - 01:00//Bloque 102	00:00 - 01:00')
-            # #         print ('Bloque 103	00:00 - 01:00//Bloque 104	00:00 - 01:00')
-            # #         print ('Bloque 105	00:00 - 01:00//Bloque 106	00:00 - 01:00')
-            # #         print ('Bloque 107	00:00 - 01:00//Bloque 108	00:00 - 01:00')
-            # #         print ('Bloque 109	00:00 - 01:00//Bloque 110	00:00 - 01:00')
-            # #         print ('Bloque 111	00:00 - 01:00//Bloque 112   00:00 - 01:00')
-            # #         print ('Bloque 113	00:00 - 01:00//Bloque 114	00:00 - 01:00')
-            # #         print ('Bloque 115	00:00 - 01:00//Bloque 116	00:00 - 01:00')
-            # #         print ('Bloque 117  00:00 - 01:00//Bloque 118	00:00 - 01:00')
-            # #         print ('Bloque 119	00:00 - 01:00//Bloque 120	00:00 - 01:00')
-            # #         print ('Bloque 121	00:00 - 01:00//Bloque 122	00:00 - 01:00')
-            # #         print ('Bloque 123	00:00 - 01:00//Bloque 124	00:00 - 01:00')
-            # #         print ('escoja un horario en que se realizara el partido')
-            # #         bloque  = int(input("bloque:"))
-            # #         #verificar la cancha en la BD 
-            # #         # y que exista un partido con ese horario 
-            # #         if todo bien :
-            # #             print ("partido creado con exito")
-            # #         else: 
-            # #             print ("la cancha se encuentra en uso en ese horario ")
-            # #             #nose como devolverlos a algun menu 
-                    
-            # #         #contructor de partido con la Fk de bloque y Cancha 
-            # #         funcion de la clase partidos (self,can,bloque)
+                    # #contructor de partido con la Fk de bloque y Cancha 
+                    # funcion de la clase partidos (self,can,bloque)
 
             # #     elif valorP == 2:
             # #         usuario=input(str('ingrese usuario'))
@@ -218,23 +238,18 @@ class Menu:
             # #     elif valorC==2: 
             # #     elif valorC==3: 
             # #     elif valorC==4: 
-                    
-            
 
-                                
-                
-
-
-                
-
-
-
-
-
-
-
-
-            
+            else:
+                print("Seleccione una opción valida .")
+                time.sleep(0.6)
+                cl()
+                print("Seleccione una opción valida ..")
+                time.sleep(0.6)
+                cl()
+                print("Seleccione una opción valida ...")
+                time.sleep(0.6)
+                cl()
+                continue
 
 
 Menu.__init__()
