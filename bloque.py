@@ -1,13 +1,12 @@
 from conector import DataBase
 
 class bloque:
-    def __init__(self, id, numero, desc):
+    def __init__(self, id, desc):
         self.id = id
-        self.numero = numero
         self.desc = desc
     
     def registrarbloque(self):
-        sql=f'INSERT INTO bloques (id_bloque,blo_num,blo_desc) VALUES ("{self.id}","{self.numero}","{self.desc}")'
+        sql=f'INSERT INTO bloques (id_bloque,blo_num,blo_desc) VALUES ("{self.id}","{self.desc}")'
         db=DataBase()
         db.insert(sql)
 
