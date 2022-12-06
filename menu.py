@@ -75,6 +75,9 @@ class Menu:
                     
                         nuser = usuario(nom, us, pas, pd, pi)
                         nuser.registrarjugador()
+                        input("Presione tecla ENTER para volver")
+                        cl()   
+
 
                     elif valorj == 2:
                         id=int(input('ingrese por su id: '))
@@ -117,8 +120,8 @@ class Menu:
                                 usuario.modificar_user(id,'us_pieder',int(nuevovalor))
                             elif atri ==5:
                                 usuario.modificar_user(id,'us_pieizq',int(nuevovalor))
-                        time.sleep(2)
-                        cl()
+                        input("Presione tecla ENTER para volver")
+                        cl()  
                     elif valorj == 5:
                         continuar=False
 
@@ -181,6 +184,9 @@ class Menu:
                 
                     elif valorP == 4:
                             continuar=False
+                    
+                    input("Presione tecla ENTER para volver")
+                    cl()  
             
             elif valor==3:
                 continuar = True
