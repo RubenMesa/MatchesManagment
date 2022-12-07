@@ -1,14 +1,14 @@
 from conector import DataBase
 
 class partido:
-    def __init__(self,id, fecha ,cancha , bloque):
+    def __init__(self,fecha ,cancha , bloque):
         self.id = id
         self.fecha = fecha
         self.cancha = cancha
         self.bloque= bloque
 
     def registrarpartido(self):
-        sql=f'INSERT INTO partido (id_partido,par_fecha,bloques_id_bloque,cancha_id_cancha) VALUES ("{self.id}", "{self.fecha}", "{self.cancha}","{self.bloque}")'
+        sql=f'INSERT INTO partido (par_fecha,bloques_id_bloque,cancha_id_cancha) VALUES ("{self.fecha}","{self.bloque}","{self.cancha}")'
         db=DataBase()
         db.insert(sql)
 
