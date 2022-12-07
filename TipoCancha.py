@@ -26,3 +26,8 @@ class tipocancha:
         sql= f'Update tipo_cancha SET {atri} = {value} WHERE id_tipo_cancha = {id}'
         db=DataBase
         db.modificar(sql)
+    
+    def eliminar_user(id):
+        sql= f'DELETE FROM tipo_cancha WHERE id_tipo_cancha = {id}'
+        db=DataBase()
+        db.eliminar(sql)

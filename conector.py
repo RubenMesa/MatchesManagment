@@ -50,6 +50,14 @@ class DataBase:
         except Error as e:
             print(e)
     
+    def eliminar(self,sql):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            self.connection.commit()
+            self.connection.close()
+        except Error as e:
+            print(e)
  
 
     

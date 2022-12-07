@@ -26,3 +26,8 @@ class cancha:
         sql= f'Update cancha SET {atri} = {value} WHERE id_cancha = {id}'
         db=DataBase
         db.modificar(sql)
+
+    def eliminar_cancha(id):
+        sql= f'DELETE FROM cancha WHERE id_cancha = {id}'
+        db=DataBase()
+        db.eliminar(sql)

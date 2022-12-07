@@ -31,3 +31,8 @@ class partido:
         sql=f'Select * FROM partido WHERE id_partido = (Select id_partido from participaciones where id_usuario = {id});'
         db=DataBase()
         return db.list_dato_uq(sql)
+
+    def eliminar_partido(id):
+        sql= f'DELETE FROM partido WHERE id_usuario = {id}'
+        db=DataBase()
+        db.eliminar(sql)

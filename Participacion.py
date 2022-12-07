@@ -28,3 +28,8 @@ class participacion:
         sql= f'Update participacion SET {atri} = {value} WHERE id_partido = {id}'
         db=DataBase
         db.modificar(sql)
+    
+    def eliminar_user(id):
+        sql= f'DELETE FROM participacion WHERE id_partido = {id}'
+        db=DataBase()
+        db.eliminar(sql)

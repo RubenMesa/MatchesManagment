@@ -24,3 +24,8 @@ class bloque:
         sql= f'Update bloques SET {atri} = {value} WHERE id_bloques = {id}'
         db=DataBase
         db.modificar(sql)
+
+    def eliminar_user(id):
+        sql= f'DELETE FROM bloques WHERE id_bloques = {id}'
+        db=DataBase()
+        db.eliminar(sql)

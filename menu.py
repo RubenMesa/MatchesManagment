@@ -26,7 +26,8 @@ class Menu:
             print('1.- Jugadores ')
             print('2.- Partidos ')
             print('3.- Configuracion ')
-            print('4.- Salir ')
+            print('4.- Borrar datos ')
+            print('5.- Salir ')
             print(' ')
             print('********************************** ')
             print('*                                * ')
@@ -38,7 +39,7 @@ class Menu:
             valor = int(input("-> : "))
             cl = lambda: os.system("cls")
             cl()
-            if valor == 4:
+            if valor == 5:
                 print("Adios .")
                 time.sleep(1)
                 cl()
@@ -259,6 +260,68 @@ class Menu:
                     
                 print('opciones de modificacion en desarrolo')
                 #finalizar
+            
+
+            elif valor == 4:
+                continuar = True
+                while continuar:
+                    print(' ')
+                    print('********************************** ')
+                    print('*                                * ')
+                    print('*            ELIMINAR            * ')
+                    print('*                                * ')
+                    print('********************************** ')
+                    print(' ')
+                    print('1.- USUARIOS')
+                    print('2.- PARTIDOS')
+                    print('3.- CANCHAS ')
+                    print('4.- Volver')
+                    print(' ')
+                    valorE = int(input("-> : "))     
+                    cl()
+
+                    if valorE==1:
+                        id=int(input('ingrese por su id: '))
+                        resultado =  usuario.eliminar_user(id,id)
+                        if resultado == None:
+                            print ("la id no coincide")
+                        else:
+                            print(' ')
+                            input("Presione tecla ENTER para volver")
+                            cl()
+                    elif valorE==2: 
+                        id=int(input('ingrese por su id: '))
+                        resultado =  partido.eliminar_partido(id,id)
+                        if resultado == None:
+                            print ("la id no coincide")
+                        else:
+                            print(' ')
+                            input("Presione tecla ENTER para volver")
+                            cl()
+                    elif valorE==3: 
+                        id=int(input('ingrese por su id: '))
+                        resultado =  cancha.eliminar_cancha(id,id)
+                        if resultado == None:
+                            print ("la id no coincide")
+                        else:
+                            print(' ')
+                            input("Presione tecla ENTER para volver")
+                            cl()
+                    elif valorE == 4:
+                        continuar=False
+                    else:
+                        print("Seleccione una opción valida .")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ..")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ...")
+                        time.sleep(0.6)
+                        cl()
+                        continue  
+                           
+
             else:
                 print("Seleccione una opción valida .")
                 time.sleep(0.6)
@@ -270,6 +333,5 @@ class Menu:
                 time.sleep(0.6)
                 cl()
                 continue
-
 
 Menu.__init__()

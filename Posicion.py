@@ -25,3 +25,8 @@ class posicion:
         sql= f'Update posicion SET {atri} = {value} WHERE id_posicion = {id}'
         db=DataBase
         db.modificar(sql)
+    
+    def eliminar_user(id):
+        sql= f'DELETE FROM posicion WHERE id_posicion = {id}'
+        db=DataBase()
+        db.eliminar(sql)
