@@ -34,7 +34,7 @@ class usuario:
     def eliminar_user(id):
         sql= f'DELETE FROM usuario WHERE id_usuario = {id}'
         db=DataBase()
-        db.modificar(sql)
+        db.eliminar(sql)
 
     
 
