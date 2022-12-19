@@ -12,4 +12,4 @@ def get_username(params={}):
        user = response.get('results')[0]
        return user.get('name').get('first')
 
-    return ''"
+    return ''""

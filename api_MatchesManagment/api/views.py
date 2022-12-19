@@ -13,13 +13,22 @@ class posicionesview(View):
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
-    def get(self, request):
-        verposicion=list(posiciones.objects.values())
-        if len(verposicion)>0:
-            datos={'message': "Exitoso", 'verposicion':verposicion}
+    def get(self, request, id=0):
+        if (id>0):
+            verposicion= list(posiciones.objects.filter(id=id).values())
+            if len(verposicion)>0:
+                posi= verposicion[0]
+                datos={'message': "Exitoso", 'verposicion':posi}
+            else:
+                datos={'message': "No se encontró la posicion..."}
+            return JsonResponse(datos)
         else:
-            datos={'message': "No se encontraron posiciones..."}
-        return JsonResponse(datos)
+            verposicion=list(posiciones.objects.values())
+            if len(verposicion)>0:
+                datos={'message': "Exitoso", 'verposicion':verposicion}
+            else:
+                datos={'message': "No se encontraron posiciones..."}
+            return JsonResponse(datos)
 
     def post(self, request):
         #print(request.body)
@@ -29,8 +38,26 @@ class posicionesview(View):
         datos={'message': "Exitoso"}
         return JsonResponse(datos)
 
-    def put(self, request):
-        pass
+    def put(self, request,id):
+        jd=json.loads(request.body)
+        verposicion= list(posiciones.objects.filter(id=id).values())
+        if len(verposicion)>0:
+            posi=posiciones.objects.get(id=id)
+            posi.nombre=jd['nombre']
+            posi.descripcion=jd['descripcion']
+            posi.save()
+            datos={'message': "Exitoso"}
+        else:
+            datos={'message': "No se encontró la posicion..."}
+        return JsonResponse(datos)
 
-    def delete(self, request):
-        pass
+
+    def delete(self, request,id):
+        verposicion= list(posiciones.objects.filter(id=id).values())
+        if len(verposicion)>0:
+            posiciones.objects.filter(id=id).delete()
+            datos={'message': "Exitoso"}
+        else:
+            datos={'message': "No se encontró la posicion..."}
+        return JsonResponse(datos)
+        
