@@ -82,9 +82,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'Nokia2022',
         'NAME': 'mydb',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES"
-        }
+        
     }
 }
 
