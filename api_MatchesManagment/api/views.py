@@ -31,9 +31,7 @@ class posicionesview(View):
             return JsonResponse(datos)
 
     def post(self, request):
-        #print(request.body)
         jd=json.loads(request.body)
-        #print(jd)
         posiciones.objects.create(nombre=jd['nombre'], descripcion=jd['descripcion'])
         datos={'message': "Exitoso"}
         return JsonResponse(datos)
@@ -49,6 +47,7 @@ class posicionesview(View):
             datos={'message': "Exitoso"}
         else:
             datos={'message': "No se encontró la posicion..."}
+        print(verposicion)
         return JsonResponse(datos)
 
 
