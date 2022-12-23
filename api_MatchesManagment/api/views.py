@@ -47,7 +47,6 @@ class posicionesview(View):
             datos={'message': "Exitoso"}
         else:
             datos={'message': "No se encontró la posicion..."}
-        print(verposicion)
         return JsonResponse(datos)
 
 

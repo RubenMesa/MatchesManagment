@@ -1,4 +1,5 @@
 from conector import DataBase
+from pythonrequest import PythonRequest
 
 class posicion:
     def __init__(self, id, nombre, desc):
@@ -30,3 +31,24 @@ class posicion:
         sql= f'DELETE FROM posicion WHERE id_posicion = {id}'
         db=DataBase()
         db.eliminar(sql)
+    
+    def ver_posicion_api():
+        api=PythonRequest
+        api.get_posiciones()
+
+    def ver_posiciones_api():
+        pass    
+
+    def agregar_posicion_api(nom, desc):
+        data = '{"nombre": '+'"'+nom+'"'', "descripcion": '+'"'+desc+'"'+' }'
+        api= PythonRequest
+        api.post_posiciones(data)
+
+    def modificar_posicion_api(id, nom, desc):
+        data = '{"nombre": '+'"'+nom+'"'', "descripcion": '+'"'+desc+'"'+' }'
+        api= PythonRequest
+        api.put_posiciones(id,data)
+
+    def eliminar_posicion_api(id):
+        api= PythonRequest
+        api.delete_posiciones(id)
