@@ -25,9 +25,10 @@ class Menu:
             print(' ')
             print('1.- Jugadores ')
             print('2.- Partidos ')
-            print('3.- Configuracion ')
-            print('4.- Borrar datos ')
-            print('5.- Salir ')
+            print('3.- Posiciones API')
+            print('4.- Configuracion ')
+            print('5.- Borrar datos ')
+            print('6.- Salir ')
             print(' ')
             print('********************************** ')
             print('*                                * ')
@@ -39,7 +40,7 @@ class Menu:
             valor = int(input("-> : "))
             cl = lambda: os.system("cls")
             cl()
-            if valor == 5:
+            if valor == 6:
                 print("Adios .")
                 time.sleep(1)
                 cl()
@@ -80,7 +81,6 @@ class Menu:
                         input("Presione tecla ENTER para volver")
                         cl()   
 
-
                     elif valorj == 2:
                         id=int(input('ingrese por su id: '))
                         resultado =  usuario.listar_jugador(id,id)
@@ -97,7 +97,6 @@ class Menu:
                         print(" ")
                         input("Presione tecla ENTER para volver")
                         cl()
-
 
                     elif valorj == 4:
                         id=int(input('ingrese por su id: '))
@@ -210,8 +209,79 @@ class Menu:
                     
                     input("Presione tecla ENTER para volver")
                     cl()  
-            
-            elif valor==3:
+
+            elif valor == 3:
+                continuar = True
+                while continuar:
+                    print(' ')
+                    print('********************************** ')
+                    print('*                                * ')
+                    print('*        Posiciones API          * ')
+                    print('*                                * ')
+                    print('********************************** ')
+                    print(' ')
+                    print('1.- Consultar posiciones')
+                    print('2.- Registrar posicion')
+                    print('3.- Modificar posicion')
+                    print('4.- Eliminar posicion')
+                    print('5.- Volver')
+                    print(' ')
+                    valora = int(input("-> : "))     
+                    cl()       
+
+                    if valora == 1:
+                        consultar=posicion
+                        consultar.ver_posicion_api()
+                        input("Presione tecla ENTER para volver")
+                        cl()   
+
+                    elif valora == 2:
+                        nom = input('ingrese el nombre: ')
+                        desc = input('ingrese la descripcion: ')
+                        print("")
+                        agregar=posicion
+                        agregar.agregar_posicion_api(nom,desc)
+                        print("")
+                        input("Presione tecla ENTER para volver")
+                        cl()   
+
+                    elif valora == 3:
+                        id = input('ingrese la id: ')
+                        nom = input('ingrese el nombre: ')
+                        desc = input('ingrese la descripcion: ')
+                        print(" ")
+                        modificar=posicion
+                        modificar.modificar_posicion_api(id,nom,desc)
+                        print(" ")
+                        input("Presione tecla ENTER para volver")
+                        cl()
+
+                    elif valora == 4:
+                        id = input('ingrese la id: ')
+                        print(" ")
+                        eliminar=posicion
+                        eliminar.eliminar_posicion_api(id)
+                        print(" ")
+                        input("Presione tecla ENTER para volver")
+                        cl()
+
+                    elif valora == 5:
+                        continuar=False
+
+                    else:
+                        print("Seleccione una opción valida .")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ..")
+                        time.sleep(0.6)
+                        cl()
+                        print("Seleccione una opción valida ...")
+                        time.sleep(0.6)
+                        cl()
+                        continue 
+
+
+            elif valor==4:
                 continuar = True
                 while continuar:
                     print(' ')
@@ -262,7 +332,7 @@ class Menu:
                 #finalizar
             
 
-            elif valor == 4:
+            elif valor == 5:
                 continuar = True
                 while continuar:
                     print(' ')
