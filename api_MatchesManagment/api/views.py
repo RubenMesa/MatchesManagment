@@ -33,7 +33,7 @@ class posicionesview(View):
     def post(self, request):
         jd=json.loads(request.body)
         posiciones.objects.create(nombre=jd['nombre'], descripcion=jd['descripcion'])
-        datos={'message': "Exitoso"}
+        datos={'message': "Agregada exitosamente"}
         return JsonResponse(datos)
 
     def put(self, request,id):
@@ -44,7 +44,7 @@ class posicionesview(View):
             posi.nombre=jd['nombre']
             posi.descripcion=jd['descripcion']
             posi.save()
-            datos={'message': "Exitoso"}
+            datos={'message': "Modificación Completada."}
         else:
             datos={'message': "No se encontró la posicion..."}
         return JsonResponse(datos)
@@ -54,7 +54,7 @@ class posicionesview(View):
         verposicion= list(posiciones.objects.filter(id=id).values())
         if len(verposicion)>0:
             posiciones.objects.filter(id=id).delete()
-            datos={'message': "Exitoso"}
+            datos={'message': "Se eliminó de forma exitosa"}
         else:
             datos={'message': "No se encontró la posicion..."}
         return JsonResponse(datos)

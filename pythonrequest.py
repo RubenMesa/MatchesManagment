@@ -10,10 +10,10 @@ class PythonRequest():
         url_posiciones = f'http://127.0.0.1:8000/api/posiciones/'
         response = requests.get(url_posiciones)
         json = response.json()
-        print ("{:<20} {:<15}".format("Nombre", "Descripción"))
-        print ("{:<20} {:<15}".format("--------", "-------------"))
+        print ("{:<6} {:<20} {:<15}".format("Id", "Nombre", "Descripción"))
+        print ("{:<6} {:<20} {:<15}".format("-----", "--------", "-------------"))
         for element in json['verposicion']:
-            print("{:<20} {:<15}".format(element['nombre'],element['descripcion']))
+            print("{:<6} {:<20} {:<15}".format(element['id'],element['nombre'],element['descripcion']))
         print("")
     
     def post_posiciones(data):

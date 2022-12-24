@@ -36,10 +36,10 @@ class Menu:
             print('*                                * ')
             print('********************************** ')
             
-            
             valor = int(input("-> : "))
             cl = lambda: os.system("cls")
             cl()
+
             if valor == 6:
                 print("Adios .")
                 time.sleep(1)
@@ -51,6 +51,7 @@ class Menu:
                 time.sleep(1)
                 cl()
                 break
+
             elif valor == 1:
                 continuar = True
                 while continuar:
@@ -169,7 +170,7 @@ class Menu:
                         p=partido(fech,blo,can)
                         p.registrarpartido()
 
-                    elif valorP==2:
+                    elif valorP == 2:
                         usuario.listartodo_user(1)
                         usu = str(input("usuario por la id: "))
                         posicion.listartodo_posicion(1)
@@ -179,7 +180,7 @@ class Menu:
                         p=participacion(usu,pos,par)
                         p.registrarparticipacion()
                     
-                    elif valorP==3:
+                    elif valorP == 3:
                         partido.listartodo_partido(1)
                         print(' ')
 
@@ -248,21 +249,43 @@ class Menu:
                     elif valora == 3:
                         id = input('ingrese la id: ')
                         nom = input('ingrese el nombre: ')
-                        desc = input('ingrese la descripcion: ')
-                        print(" ")
-                        modificar=posicion
-                        modificar.modificar_posicion_api(id,nom,desc)
-                        print(" ")
-                        input("Presione tecla ENTER para volver")
+                        desc = input('ingrese la descripcion: ')                        
+                        mod= True
+                        while mod:
+                            resp= (input("Está seguro que desea modificar la posición? (s/n): ")).lower()
+                            print(" ")
+                            if resp == "s":
+                                modificar=posicion
+                                modificar.modificar_posicion_api(id,nom,desc)
+                                print(" ")
+                                input("Presione tecla ENTER para volver")
+                                mod= False
+                            elif resp == "n":
+                                mod = False
+                            else:
+                                print("por favor seleccione una opcion valida")
+                                print(" ")
+                                continue
                         cl()
 
                     elif valora == 4:
                         id = input('ingrese la id: ')
-                        print(" ")
-                        eliminar=posicion
-                        eliminar.eliminar_posicion_api(id)
-                        print(" ")
-                        input("Presione tecla ENTER para volver")
+                        elim= True
+                        while elim:
+                            resp= (input("Está seguro que desea eliminar la posición? (s/n): ")).lower()
+                            print(" ")
+                            if resp == "s":
+                                eliminar=posicion
+                                eliminar.eliminar_posicion_api(id)
+                                print(" ")
+                                input("Presione tecla ENTER para volver")
+                                elim= False
+                            elif resp == "n":
+                                elim = False
+                            else:
+                                print("por favor seleccione una opcion valida")
+                                print(" ")
+                                continue
                         cl()
 
                     elif valora == 5:
@@ -279,7 +302,6 @@ class Menu:
                         time.sleep(0.6)
                         cl()
                         continue 
-
 
             elif valor==4:
                 continuar = True
@@ -327,11 +349,7 @@ class Menu:
                         time.sleep(0.6)
                         cl()
                         continue  
-                    
-                print('opciones de modificacion en desarrolo')
-                #finalizar
             
-
             elif valor == 5:
                 continuar = True
                 while continuar:
@@ -359,6 +377,7 @@ class Menu:
                             print(' ')
                             input("Presione tecla ENTER para volver")
                             cl()
+
                     elif valorE==2: 
                         id=int(input('ingrese por su id: '))
                         resultado =  partido.eliminar_partido(id,id)
@@ -368,6 +387,7 @@ class Menu:
                             print(' ')
                             input("Presione tecla ENTER para volver")
                             cl()
+
                     elif valorE==3: 
                         id=int(input('ingrese por su id: '))
                         resultado =  cancha.eliminar_cancha(id,id)
@@ -377,8 +397,10 @@ class Menu:
                             print(' ')
                             input("Presione tecla ENTER para volver")
                             cl()
+
                     elif valorE == 4:
                         continuar=False
+
                     else:
                         print("Seleccione una opción valida .")
                         time.sleep(0.6)
@@ -391,7 +413,6 @@ class Menu:
                         cl()
                         continue  
                            
-
             else:
                 print("Seleccione una opción valida .")
                 time.sleep(0.6)
